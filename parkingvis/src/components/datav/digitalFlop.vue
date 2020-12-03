@@ -5,13 +5,25 @@
       v-for="item in digitalFlopData"
       :key="item.title"
     >
-      <div class="digital-flop-title">{{ item.title }}</div>
+      <div
+        :class="
+          item.name == 'park' || item.name == 'parked'
+            ? 'digital-flop-title-emphasis'
+            : 'digital-flop-title'
+        "
+      >
+        {{ item.title }}
+      </div>
+      <dv-decoration-3
+        v-if="item.name == 'park' || item.name == 'parked'"
+        style="width:50%;height:10px;"
+      />
       <div class="digital-flop">
         <dv-digital-flop
           :config="item.number"
           style="width:100px;height:50px;"
         />
-          <div class="unit">{{ item.unit }}</div>
+        <div class="unit">{{ item.unit }}</div>
       </div>
     </div>
 
@@ -21,155 +33,162 @@
 
 <script>
 export default {
-  name: 'DigitalFlop',
-  data () {
+  name: "DigitalFlop",
+  data() {
     return {
       digitalFlopData: []
-    }
+    };
   },
   methods: {
-    createData () {
-      const { randomExtend } = this
+    createData() {
+      const { randomExtend } = this;
 
       this.digitalFlopData = [
         {
-          title: '管养里程',
+          name: "carpark",
+          title: "平台车场",
           number: {
-            number: [randomExtend(20000, 30000)],
-            content: '{nt}',
-            textAlign: 'right',
+            number: [randomExtend(100, 300)],
+            content: "{nt}",
+            textAlign: "right",
             style: {
-              fill: '#4d99fc',
-              fontWeight: 'bold'
+              fill: "#40faee",
+              fontWeight: "bold"
             }
           },
-          unit: '公里'
+          unit: "个"
         },
         {
-          title: '桥梁',
+          name: "exceptpark",
+          title: "异常车场",
           number: {
             number: [randomExtend(20, 30)],
-            content: '{nt}',
-            textAlign: 'right',
+            content: "{nt}",
+            textAlign: "right",
             style: {
-              fill: '#f46827',
-              fontWeight: 'bold'
+              fill: "#f46827",
+              fontWeight: "bold"
             }
           },
-          unit: '座'
+          unit: "个"
         },
         {
-          title: '涵洞隧道',
+          name: "district",
+          title: "覆盖县区",
           number: {
             number: [randomExtend(20, 30)],
-            content: '{nt}',
-            textAlign: 'right',
+            content: "{nt}",
+            textAlign: "right",
             style: {
-              fill: '#40faee',
-              fontWeight: 'bold'
+              fill: "#4d99fc",
+              fontWeight: "bold"
             }
           },
-          unit: '个'
+          unit: "个"
         },
         {
-          title: '匝道',
+          name: "park",
+          title: "总车位",
           number: {
-            number: [randomExtend(10, 20)],
-            content: '{nt}',
-            textAlign: 'right',
+            number: [randomExtend(2000, 20000)],
+            content: "{nt}",
+            textAlign: "center",
             style: {
-              fill: '#4d99fc',
-              fontWeight: 'bold'
+              fill: "#40faee",
+              fontWeight: "bold",
+              fontFamily: "electronicFont",
+              fontSize: "36"
             }
-          },
-          unit: '个'
+          }
+          // unit: "个"
         },
         {
-          title: '隧道',
+          name: "parked",
+          title: "已停车",
           number: {
-            number: [randomExtend(5, 10)],
-            content: '{nt}',
-            textAlign: 'right',
+            number: [randomExtend(2000, 20000)],
+            content: "{nt}",
+            textAlign: "center",
             style: {
-              fill: '#f46827',
-              fontWeight: 'bold'
+              fill: "#4d99fc",
+              fontWeight: "bold",
+              fontFamily: "electronicFont",
+              fontSize: "36"
             }
-          },
-          unit: '个'
+          }
+          // unit: "个"
         },
         {
-          title: '服务区',
+          name: "out",
+          title: "累计出场",
           number: {
-            number: [randomExtend(5, 10)],
-            content: '{nt}',
-            textAlign: 'right',
+            number: [randomExtend(1000, 20000)],
+            content: "{nt}",
+            textAlign: "right",
             style: {
-              fill: '#40faee',
-              fontWeight: 'bold'
+              fill: "#40faee",
+              fontWeight: "bold"
             }
           },
-          unit: '个'
+          unit: "次"
         },
         {
-          title: '收费站',
+          name: "in",
+          title: "累计进场",
           number: {
-            number: [randomExtend(5, 10)],
-            content: '{nt}',
-            textAlign: 'right',
+            number: [randomExtend(5000, 30000)],
+            content: "{nt}",
+            textAlign: "right",
             style: {
-              fill: '#4d99fc',
-              fontWeight: 'bold'
+              fill: "#4d99fc",
+              fontWeight: "bold"
             }
           },
-          unit: '个'
+          unit: "次"
         },
         {
-          title: '超限站',
+          name: "averagepark",
+          title: "车位平均压力",
           number: {
-            number: [randomExtend(5, 10)],
-            content: '{nt}',
-            textAlign: 'right',
+            number: [randomExtend(50, 100)],
+            content: "{nt}",
+            textAlign: "right",
             style: {
-              fill: '#f46827',
-              fontWeight: 'bold'
+              fill: "#f46827",
+              fontWeight: "bold"
             }
           },
-          unit: '个'
-        },
-        {
-          title: '停车区',
-          number: {
-            number: [randomExtend(5, 10)],
-            content: '{nt}',
-            textAlign: 'right',
-            style: {
-              fill: '#40faee',
-              fontWeight: 'bold'
-            }
-          },
-          unit: '个'
+          unit: "%"
         }
-      ]
+      ];
     },
-    randomExtend (minNum, maxNum) {
+    randomExtend(minNum, maxNum) {
       if (arguments.length === 1) {
-        return parseInt(Math.random() * minNum + 1, 10)
+        return parseInt(Math.random() * minNum + 1, 10);
       } else {
-        return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10)
+        return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
       }
     }
   },
-  mounted () {
-    const { createData } = this
+  mounted() {
+    const { createData } = this;
+    createData();
+    // setInterval(createData, 30000);
+  },
+  created() {
+    const { createData } = this;
 
-    createData()
-
-    setInterval(createData, 30000)
+    createData();
   }
-}
+};
 </script>
 
 <style lang="less">
+/* 声明字体*/
+@font-face {
+  font-family: "electronicFont";
+  src: url(../../assets/font/DS-DIGIT.TTF);
+}
 #digital-flop {
   position: relative;
   height: 15%;
@@ -188,7 +207,7 @@ export default {
   }
 
   .digital-flop-item {
-    width: 11%;
+    width: 13%;
     height: 80%;
     display: flex;
     flex-direction: column;
@@ -203,10 +222,18 @@ export default {
     margin-bottom: 20px;
   }
 
+  .digital-flop-title-emphasis {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
   .digital-flop {
     display: flex;
   }
-
+  .item-number {
+    font-family: electronicFont;
+  }
   .unit {
     margin-left: 10px;
     display: flex;

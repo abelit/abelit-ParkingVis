@@ -100,10 +100,10 @@ export default {
         return;
       }
       this.progress = this.progress + 10;
-    }, 200);
+    }, 140);
     setTimeout(() => {
       this.loading = false;
-    }, 2100);
+    }, 1500);
   }
 };
 </script>

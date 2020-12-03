@@ -1,5 +1,10 @@
 <template>
-  <div id="park-map"></div>
+  <div id="park-map" :key="mapDepth">
+    <div class="park-map-label">
+      <button :class="mapDepth==2?'park-map-label-btn-active':'park-map-label-btn'" @click="changeMap(2)">州市</button>
+      <button :class="mapDepth==3?'park-map-label-btn-active':'park-map-label-btn'" @click="changeMap(3)">县区</button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -10,6 +15,7 @@ const colors = ["#B8E1FF", "#7DAAFF", "#3D76DD", "#0047A5", "#001D70"];
 export default {
     data() {
         return {
+            mapDepth: 3,
             mapData: {
             "520628": {"province": "贵州省","county": "松桃苗族自治县","carpark": 10,"park": 550, "parked": 300},
             "520627": {"province": "贵州省","county": "沿河土家族自治县","carpark": 10,"park": 550, "parked": 300},
@@ -62,7 +68,10 @@ export default {
             "520624": {"province": "贵州省","county": "思南县","carpark": 10,"park": 650, "parked": 300},
             "520623": {"province": "贵州省","county": "石阡县","carpark": 10,"park": 550, "parked": 300},
             "520626": {"province": "贵州省","county": "德江县","carpark": 10,"park": 550, "parked": 300},
-            "520625": {"province": "贵州省","county": "印江土家族苗族自治县","carpark": 10,"park": 550, "parked": 300}
+            "520625": {"province": "贵州省","county": "印江土家族苗族自治县","carpark": 10,"park": 550, "parked": 300},
+            "522323": {"province": "贵州省","county": "普安县","carpark": 10,"park": 800, "parked": 300},
+            "520100": {"province": "贵州省","county": "普安县","carpark": 10,"park": 3000, "parked": 300},
+            
             }
         }
     },
@@ -70,6 +79,14 @@ export default {
     this.initMap();
   },
   methods: {
+    changeMap(param) {
+      if (param != this.mapDepth) {
+        this.mapDepth = param;
+        this.$nextTick(()=> {
+          this.initMap();
+        })
+      }
+    },
     initMap() {
     //   const response = await fetch(
     //     "https://gw.alipayobjects.com/os/bmw-prod/149b599d-21ef-4c24-812c-20deaee90e20.json"
@@ -103,7 +120,7 @@ export default {
           data,
           joinBy: ["adcode", "code"],
           adcode: ["520000"],
-          depth: 3,
+          depth: this.mapDepth,
           autoFit: true,
           label: {
             field: "NAME_CHN",
@@ -129,6 +146,7 @@ export default {
         });
       });
     }
+         
   }
 };
 </script>
@@ -144,5 +162,23 @@ export default {
   //   background-color: rgba(6, 30, 93, 0.5);
   //   border-top: 2px solid rgba(1, 153, 209, 0.5);
   box-sizing: border-box;
+  .park-map-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+    .park-map-label-btn {
+      // background-color: #3de7c9;
+      background-color: #e3ffff;
+      border: none;
+      
+    }
+    .park-map-label-btn-active {
+      background-color: #2ebaff;
+      // background-color: #e3ffff;
+      border: none;
+      
+    }
+  }
 }
 </style>
