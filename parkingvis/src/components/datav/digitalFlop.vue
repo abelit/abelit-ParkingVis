@@ -7,7 +7,7 @@
     >
       <div
         :class="
-          item.name == 'park' || item.name == 'parked'
+          item.name == 'parknum' || item.name == 'parked'
             ? 'digital-flop-title-emphasis'
             : 'digital-flop-title'
         "
@@ -15,7 +15,7 @@
         {{ item.title }}
       </div>
       <dv-decoration-3
-        v-if="item.name == 'park' || item.name == 'parked'"
+        v-if="item.name == 'parknum' || item.name == 'parked'"
         style="width:50%;height:10px;"
       />
       <div class="digital-flop">
@@ -73,7 +73,7 @@ export default {
           unit: "个"
         },
         {
-          name: "district",
+          name: "districtpark",
           title: "覆盖县区",
           number: {
             number: [randomExtend(20, 30)],
@@ -87,7 +87,7 @@ export default {
           unit: "个"
         },
         {
-          name: "park",
+          name: "parknum",
           title: "总车位",
           number: {
             number: [randomExtend(2000, 20000)],
@@ -147,7 +147,7 @@ export default {
           unit: "次"
         },
         {
-          name: "averagepark",
+          name: "parkload",
           title: "车位平均压力",
           number: {
             number: [randomExtend(50, 100)],
