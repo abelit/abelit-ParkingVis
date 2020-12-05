@@ -48,7 +48,7 @@ export default {
           name: "carpark",
           title: "平台车场",
           number: {
-            number: [randomExtend(100, 300)],
+            number: [randomExtend(253, 253)],
             content: "{nt}",
             textAlign: "right",
             style: {
@@ -62,7 +62,7 @@ export default {
           name: "exceptpark",
           title: "异常车场",
           number: {
-            number: [randomExtend(20, 30)],
+            number: [randomExtend(3, 5)],
             content: "{nt}",
             textAlign: "right",
             style: {
@@ -76,7 +76,7 @@ export default {
           name: "districtpark",
           title: "覆盖县区",
           number: {
-            number: [randomExtend(20, 30)],
+            number: [randomExtend(55, 55)],
             content: "{nt}",
             textAlign: "right",
             style: {
@@ -90,7 +90,7 @@ export default {
           name: "parknum",
           title: "总车位",
           number: {
-            number: [randomExtend(2000, 20000)],
+            number: [randomExtend(30000, 32000)],
             content: "{nt}",
             textAlign: "center",
             style: {
@@ -106,7 +106,7 @@ export default {
           name: "parked",
           title: "已停车",
           number: {
-            number: [randomExtend(2000, 20000)],
+            number: [randomExtend(20000, 30000)],
             content: "{nt}",
             textAlign: "center",
             style: {
@@ -122,7 +122,7 @@ export default {
           name: "out",
           title: "累计出场",
           number: {
-            number: [randomExtend(1000, 20000)],
+            number: [randomExtend(155556, 157556)],
             content: "{nt}",
             textAlign: "right",
             style: {
@@ -136,7 +136,7 @@ export default {
           name: "in",
           title: "累计进场",
           number: {
-            number: [randomExtend(5000, 30000)],
+            number: [randomExtend(157556, 158556)],
             content: "{nt}",
             textAlign: "right",
             style: {
@@ -150,7 +150,7 @@ export default {
           name: "parkload",
           title: "车位平均压力",
           number: {
-            number: [randomExtend(50, 100)],
+            number: [randomExtend(50, 70)],
             content: "{nt}",
             textAlign: "right",
             style: {

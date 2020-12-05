@@ -4,7 +4,9 @@
     <!-- <div class="rose-chart-label">
       出场数 进场数
     </div> -->
-    <dv-charts :option="option" />
+    <div class="rose-chart-body">
+      <dv-charts :option="option" />
+    </div>
   </div>
 </template>
 
@@ -52,12 +54,12 @@ export default {
         series: [
           {
             name: "进场车量",
-            data: [1200, 2230, 1900, 2100, 3500, 4200, 3985],
+            data: [12000, 9230, 8900, 3100, 4500, 5020, 3985],
             type: "bar"
           },
           {
             name: "出场车量",
-            data: [1300, 2230, 1800, 2200, 3000, 4100, 3398],
+            data: [9983, 7960, 7800, 2702, 4356, 4100, 3162],
             type: "bar"
           }
         ],
@@ -83,7 +85,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 #rose-chart {
   width: 100%;
   height: 100%;
@@ -91,6 +93,8 @@ export default {
   border-top: 2px solid rgba(1, 153, 209, 0.5);
   border-bottom: 2px solid rgba(1, 153, 209, 0.5);
   box-sizing: border-box;
+   align-items: center;
+   justify-items: center;
 
   .rose-chart-title {
     height: 50px;
@@ -101,24 +105,14 @@ export default {
     align-items: center;
   }
 
-  .dv-charts-container {
-    height: calc(~"100% - 100px");
+  .rose-chart-body {
+    height: calc(100% - 50px);
+    // display: flex;
+    // align-items: center;
   }
-
-  .water-level-chart-details {
-    height: 15%;
-    display: flex;
-    justify-content: center;
-    font-size: 17px;
-    align-items: flex-end;
-
-    span {
-      font-size: 35px;
-      font-weight: bold;
-      color: #58a1ff;
-      margin: 0 5px;
-      margin-bottom: -5px;
-    }
+  .dv-charts-container {
+    display: relative;
+    height: 100% !important;
   }
 }
 </style>

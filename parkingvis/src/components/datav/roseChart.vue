@@ -24,10 +24,11 @@ export default {
           {
             type: 'pie',
             data: [
-              { name: '贵阳', value: 93 },
-              { name: '遵义', value: 66 },
-              { name: '六盘水', value: 52 },
-              { name: '铜仁', value: 34 },
+              { name: '贵阳', value: 60 },
+              { name: '遵义', value: 50 },
+              { name: '六盘水', value: 37 },
+              { name: '毕节', value: 20 },
+              { name: '铜仁', value: 18 },
               { name: '其他', value: 22 }
             ],
             radius: ['45%', '65%'],
@@ -64,7 +65,7 @@ export default {
   },
   mounted() {
     const { createData } = this;
-    this.parkingNum = 500;
+    this.parkingNum = 253;
 
     createData();
 

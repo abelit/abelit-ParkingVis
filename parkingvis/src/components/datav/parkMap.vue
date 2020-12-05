@@ -25,6 +25,8 @@
 import { Scene } from "@antv/l7";
 import { ProvinceLayer } from "@antv/l7-district";
 import { Mapbox } from "@antv/l7-maps";
+import moment from "moment";
+
 const colors = ["#B8E1FF", "#7DAAFF", "#3D76DD", "#0047A5", "#001D70"];
 export default {
   data() {
@@ -217,7 +219,7 @@ export default {
           province: "贵州省",
           county: "遵义市",
           carpark: 10,
-          park: 550,
+          park: 2550,
           parked: 300
         },
         "520328": {
@@ -427,14 +429,14 @@ export default {
           province: "贵州省",
           county: "六盘水市",
           carpark: 10,
-          park: 800,
+          park: 1800,
           parked: 300
         },
         "522400": {
           province: "贵州省",
           county: "毕节市",
           carpark: 10,
-          park: 800,
+          park: 1000,
           parked: 300
         },
         "520500": {
@@ -469,10 +471,10 @@ export default {
           province: "贵州省",
           county: "安顺市",
           carpark: 10,
-          park: 800,
+          park: 900,
           parked: 300
         },
-         "522600": {
+        "522600": {
           province: "贵州省",
           county: "黔东南州",
           carpark: 10,

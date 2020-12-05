@@ -15,15 +15,15 @@ export default {
         data: [
           {
             name: "贵阳",
-            value: 100
+            value: 88
           },
           {
             name: "遵义",
-            value: 67
+            value: 72
           },
           {
             name: "六盘水",
-            value: 100
+            value: 60
           },
           {
             name: "铜仁",
@@ -31,19 +31,23 @@ export default {
           },
           {
             name: "毕节",
-            value: 98
+            value: 63
           },
           {
             name: "黔东南",
-            value: 55
+            value: 50
           },
           {
             name: "黔西南",
-            value: 98
+            value: 46
           },
           {
             name: "其他",
-            value: 98
+            value: 30
+          },
+          {
+            value: 100,
+            colors: ["#ffffff",""]
           }
         ],
         colors: ["#00baff", "#3de7c9", "#fff", "#ffc530", "#469f4b"],
