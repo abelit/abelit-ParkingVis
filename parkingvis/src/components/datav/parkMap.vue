@@ -139,4 +139,7 @@ export default {
     }
   }
 }
+.l7-control-logo {
+  display: none;
+}
 </style>
